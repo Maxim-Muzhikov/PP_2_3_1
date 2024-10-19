@@ -26,12 +26,12 @@ public class WebConfig implements WebMvcConfigurer {
 	@Bean
 	public SpringResourceTemplateResolver templateResolver() {
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-		templateResolver.setApplicationContext(applicationContext); // Внедрите ApplicationContext
-		templateResolver.setPrefix("/WEB-INF/pages/"); // Путь к вашим шаблонам
+		templateResolver.setApplicationContext(applicationContext);
+		templateResolver.setPrefix("/WEB-INF/pages/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode(TemplateMode.HTML);
-		templateResolver.setCharacterEncoding("UTF-8"); // Устанавливаем кодировку
-		templateResolver.setCacheable(false); // Отключаем кеширование для разработки
+		templateResolver.setCharacterEncoding("UTF-8");
+		templateResolver.setCacheable(false);
 		return templateResolver;
 	}
 	
@@ -47,9 +47,9 @@ public class WebConfig implements WebMvcConfigurer {
 	public ThymeleafViewResolver viewResolver() {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine());
-		viewResolver.setCharacterEncoding("UTF-8"); // Устанавливаем кодировку
-		viewResolver.setContentType("text/html; charset=UTF-8"); // Также устанавливаем Content-Type
-		viewResolver.setOrder(1); // Устанавливаем приоритет, если у вас несколько view resolvers
+		viewResolver.setCharacterEncoding("UTF-8");
+		viewResolver.setContentType("text/html; charset=UTF-8");
+		viewResolver.setOrder(1);
 		return viewResolver;
 	}
 	

@@ -21,8 +21,8 @@ public class UserController {
 	@GetMapping("/")
 	public String getUsers(Model model) {
 		model.addAttribute("users", userService.getUsers());
-		model.addAttribute("user", new User()); // Для формы добавления
-		return "index"; // Имя шаблона Thymeleaf
+		model.addAttribute("user", new User());
+		return "index";
 	}
 	
 	@PostMapping("/add")
@@ -34,7 +34,7 @@ public class UserController {
 	@GetMapping("/edit")
 	public String editUser(@RequestParam("id") long id, Model model) {
 		model.addAttribute("user", userService.get(id));
-		return "edit_user"; // Имя шаблона для редактирования
+		return "edit_user";
 	}
 	
 	@PostMapping("/update")
@@ -45,7 +45,7 @@ public class UserController {
 	
 	@GetMapping("/delete")
 	public String deleteUser(@RequestParam("id") long id) {
-		userService.delete(id); // Реализуйте метод delete в UserService
+		userService.delete(id);
 		return "redirect:/users/";
 	}
 }
